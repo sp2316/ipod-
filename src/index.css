@@ -1,0 +1,91 @@
+.ipod{
+  margin-top:100px;
+  margin-left: auto;
+  margin-right: auto;
+  width:205px;
+  height: 450px;
+  background-color:lightgray;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 1px gray;
+  display: flex;
+  flex-direction: column;
+ justify-content: space-between;
+  
+}
+
+.ipod-screen{
+  margin-top:20px;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  height:50%;
+  border:1px solid black;
+  background-image: url('https://images.unsplash.com/photo-1524338198850-8a2ff63aaceb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&w=1000&q=80');
+  background-size: 250px 200px;
+}
+
+.control-panel{
+
+  margin-left: auto;
+  margin-right: auto;
+  width:175px;
+  height:175px;
+  border:2px solid black;
+  border-radius: 50%;
+  background-color: wheat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu{
+ 
+  color:black;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  padding:10px;
+  align-self: center;
+  transition: 1s all;
+}
+.menu:hover{
+  color:grey;
+}
+
+.controls{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.play-pause{
+  align-self: center;
+
+}
+img{
+   width:40px;
+   height:40px;
+
+}
+button{
+  outline: none;
+  background-color: transparent;
+  border-width: 0 0 0 0;
+  cursor: pointer;
+}
+
+.options{
+
+  width:130px;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  background-color: wheat;
+  justify-content: space-evenly;
+  font-size: 1.12rem;
+  overflow:scroll;
+}
+
+.options div{
+  height:30px;
+  padding:15px;
+}
