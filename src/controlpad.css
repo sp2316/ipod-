@@ -15,7 +15,7 @@
     border-radius: 50%;
     top:35%;
     left:34%;
-    border:2px solid black;
+    /* border:2px solid black; */
     cursor: pointer;
 }
 
