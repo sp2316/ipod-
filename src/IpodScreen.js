@@ -12,7 +12,7 @@ class IpodScreen extends React.Component{
             <div className="ipod-screen" > 
                 <ul id="list">
 
-                <li className="selected">Songs</li>
+                <li id="songs" className="selected">Songs</li>
                 <li id="Album" >Album</li>
                 <li id="Artist">Artist</li>
                 <li id="Settings">Setting</li>

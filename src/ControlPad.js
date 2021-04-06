@@ -4,21 +4,11 @@ import ZingTouch from 'zingtouch'
 class ControlPad extends React.Component{
 
 
-    captureRotation=()=>{
-
-        var angle=0;
-        const target=document.getElementById('outer-wheel');
-        const region=new  ZingTouch.Region(target);
-        region.bind(target,'rotate',(e)=>{
-            // angle+=e.detail.distanceFromLast;
-            console.log("wheel");
-        })
-
-    }
+    
     render(){
         return(
 
-                <div className="outerController" id="outer-wheel" onClick={this.captureRotation}>
+                <div className="outerController" id="outer-wheel" onClick={()=>this.props.rotate()}>
                    
                     <p className="menu">MENU</p>
                    
