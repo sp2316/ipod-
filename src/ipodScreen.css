@@ -1,5 +1,22 @@
-/* .ipod-screen{
-    width:100vw;
-    height:100vh;
+.ipod-screen{
+    height:45%;
     border:1px solid red;
-} */
+    margin:8px;
+    background-color: white;
+    padding:4px;
+}
+#list{
+
+    list-style: none;
+    padding:0px;
+    width:60%;
+}
+
+li{
+    padding: 15px;
+}
+
+.selected{
+
+    background-color: rgb(122, 11, 226);
+}
