@@ -9,7 +9,7 @@ class IpodScreen extends React.Component{
 
        
         return(
-            <div className="ipod-screen" > 
+            <div id="screen" className="ipod-screen" > 
                 <ul id="list">
 
                 <li id="songs" className="selected">Songs</li>

@@ -1,6 +1,5 @@
 import React from 'react'
 import './controlpad.css'
-import ZingTouch from 'zingtouch'
 class ControlPad extends React.Component{
 
 
@@ -10,7 +9,7 @@ class ControlPad extends React.Component{
 
                 <div className="outerController" id="outer-wheel" onClick={()=>this.props.rotate()}>
                    
-                    <p className="menu">MENU</p>
+                    <p className="menu" onClick={()=>this.props.handleMenuClick()}>MENU</p>
                    
                     <p className="prev">|&lt;&lt;</p>
                    
@@ -18,7 +17,7 @@ class ControlPad extends React.Component{
                    
                     <p className="play-pause">&gt;||</p>
                    
-                      <div className="innerController">
+                      <div className="innerController" onClick={()=>this.props.handleItemClick()}>
                       </div>
  
 

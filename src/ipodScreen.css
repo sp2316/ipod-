@@ -1,16 +1,20 @@
 .ipod-screen{
-    height:45%;
+    height:50%;
     border:1px solid red;
     margin:8px;
     background-color: white;
-    padding:4px;
+    /* padding:4px; */
+    /* background-image: url('https://i.scdn.co/image/ab67706c0000bebbcb52a7efbba12acf296c1c64'); */
+    /* background-position: top; */
 }
 #list{
 
     list-style: none;
+    /* color:white; */
     padding:0px;
     width:60%;
 }
+
 
 li{
     padding: 15px;
@@ -19,4 +23,11 @@ li{
 .selected{
 
     background-color: rgb(122, 11, 226);
+    color:lightgray;
+}
+
+#img-id{
+    /* border:2px solid red; */
+    height:100%;
+    width:100%;
 }
