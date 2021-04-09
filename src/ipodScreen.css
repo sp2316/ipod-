@@ -1,28 +1,42 @@
 .ipod-screen{
     height:50%;
-    border:1px solid red;
     margin:8px;
     background-color: white;
-    /* padding:4px; */
-    /* background-image: url('https://i.scdn.co/image/ab67706c0000bebbcb52a7efbba12acf296c1c64'); */
-    /* background-position: top; */
+    border:1px solid black;
+    /* padding-top:4px; */
+    background-image: url('https://i.scdn.co/image/ab67706c0000bebbcb52a7efbba12acf296c1c64');
+    background-position: top;
+    background-size: 310px;
+    /* opacity: 0.; */
 }
+
 #list{
 
     list-style: none;
     /* color:white; */
+    /* background-color:white; */
     padding:0px;
-    width:60%;
+    width:65%;
 }
+#list span{
+        font-family: sans-serif;
+        padding: 5px;
+        color:violet;
+        text-shadow: 0 0 10px rgb(116, 58, 61);
+        font-weight: bolder;
+    }
 
 
 li{
-    padding: 15px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color:blue;
+    padding:15px;
 }
 
 .selected{
-
-    background-color: rgb(122, 11, 226);
+     background-color:lightred;
+    /* background-color: rgb(122, 11, 226); */
     color:lightgray;
 }
 
