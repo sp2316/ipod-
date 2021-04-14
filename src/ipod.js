@@ -131,7 +131,7 @@ class Ipod extends React.Component{
         if(activeItem==='Music'){
             this.setState({
                 activeItem:'MyMusic',
-                activePage:activeItem
+                activePage:'Music'
             })
         }else if(activeItem==='NowPlaying'){
             this.setState({
