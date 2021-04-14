@@ -14,6 +14,7 @@ class Ipod extends React.Component{
             play:true
         }
     }
+    
     captureRotation=()=>{
         const target=document.getElementById('outer-wheel');
         const region=new ZingTouch.Region(target);
@@ -124,6 +125,7 @@ class Ipod extends React.Component{
   
 
     changePage= ()=>{
+        console.log(this.state);
 
         let {activeItem}=this.state;
         if(activeItem==='Music'){
@@ -157,12 +159,12 @@ class Ipod extends React.Component{
                 activePage:'Home'
             })
         }
-        // else{
-        //     this.setState({
-        //         activeItem:this.state.activeItem,
-        //         activePage:'Home'
-        //     })
-        // }
+        else{
+            this.setState({
+                activeItem:this.state.activeItem,
+                activePage:'Home'
+            })
+        }
     }
 
   render(){
