@@ -2,226 +2,191 @@ import React from 'react'
 import IpodScreen from './IpodScreen'
 import ControlPad from './ControlPad'
 import ZingTouch from 'zingtouch'
-import './ipod.css'
 
 class Ipod extends React.Component{
 
     constructor(){
         super();
         this.state={
-            Menu:true,
-            album:false,
-            songs:true,
-            setting:false,
-            artist:false,
+            activeItem:'NowPlaying',
+            activePage:'Home',
+            enter:0,
+            play:true
         }
     }
     captureRotation=()=>{
-        const songs=document.getElementById('songs');
-        const album=document.getElementById('Album');
-        const artist=document.getElementById('Artist');
-        const settings=document.getElementById('Settings');
-        let angle=0;
         const target=document.getElementById('outer-wheel');
-        const region=new  ZingTouch.Region(target);
+        const region=new ZingTouch.Region(target);
+        let change=0;
+        this.state.enter+=1;
+        if(this.state.enter<2){
+            region.bind(target,'rotate',(e)=>{
 
-        region.bind(target,'rotate',(e)=>{
-            angle+=e.detail.distanceFromLast;
-            console.log(angle);
-            if(angle<0 && this.state.Menu===true){
-                songs.classList.add('selected');
-                album.classList.remove('selected');
-                artist.classList.remove('selected');
-                settings.classList.remove('selected');
+               let angle=e.detail.distanceFromLast;
+                console.log("angle",angle," ",this.state.enter);
 
-                this.setState({
-                    Menu:true,
-                    album:false,
-                    songs:true,
-                    artist:false,
-                    setting:false
-                })
+                if(angle<0){
+
+                    console.log("change ",change);
+                    change++;
+                    let {activePage}=this.state;
+                    let {activeItem}=this.state;
+
+                    if(change===15){
+                        console.log("change state");
+                        change=0;
+                        
+                        if(activePage==='Home'){
+                            if(activeItem==='NowPlaying'){
+                                this.setState({
+                                    activeItem:"Music"
+                                })
+                            }
+                            else if(activeItem==='Music'){
+                                this.setState({
+                                    activeItem:"Games"
+                                })
+                            }
+                            else if(activeItem==='Games'){
+                                this.setState({
+                                    activeItem:"Settings"
+                                })
+                            }
+                            else if(activeItem==='Settings'){
+                                this.setState({
+                                    activeItem:"NowPlaying"
+                                })
+                            }
+                        }
+
+                        else if(activePage==="Music"){
+                                if(activeItem==="MyMusic"){
+                                    this.setState({
+                                        activeItem:"Artists"
+                                    })
+                                }else if(activeItem==="Artists"){
+                                    this.setState({
+                                        activeItem:"MyMusic"
+                                    })
+                                }
+                        }
+                    }
+                }else{
+                            change++;
+                            let {activePage}=this.state;
+                            if(change===15){
+
+                            change=0;
+                            if(activePage==='Home'){
+
+                                if(this.state.activeItem === 'NowPlaying'){
+                                    this.setState({
+                                        activeItem : "Settings"
+                                    })
+                                }else if(this.state.activeItem === 'Music'){
+                                    this.setState({
+                                        activeItem : "NowPlaying"
+                                    })
+                                }else if(this.state.activeItem === 'Games'){
+                                    this.setState({
+                                        activeItem : "Music"
+                                    })
+                                }else if(this.state.activeItem === 'Settings'){
+                                    this.setState({
+                                        activeItem : "Games"
+                                    })
+                                }
+
+
+                            }else if(activePage==='Music'){
+                                if(this.state.activeItem === 'MyMusic'){
+                                    this.setState({
+                                        activeItem : "Artists"
+                                    })
+                                }else if(this.state.activeItem === 'Artists'){
+                                    this.setState({
+                                        activeItem : "MyMusic"
+                                    })
+                            }
+                        }
+
+
+                }
             }
-            if(angle>0 &&angle<15 && this.state.Menu===true ){
-                songs.classList.remove('selected');
-                album.classList.add('selected');
-                artist.classList.remove('selected');
-                settings.classList.remove('selected');
-                this.setState({
-                    Menu:true,
-                    album:true,
-                    songs:false,
-                    artist:false,
-                    setting:false
-                })
-
-            }
-             if(angle>15 && angle<30 && this.state.Menu===true){
-                songs.classList.remove('selected');
-                album.classList.remove('selected');
-                artist.classList.add('selected');
-                settings.classList.remove('selected');
-                this.setState({
-                    Menu:true,
-                    album:false,
-                    songs:false,
-                    artist:true,
-                    setting:false
-                })
-            }
-            if(angle>30 && angle<45 && this.state.Menu===true){
-                songs.classList.remove('selected');
-                album.classList.remove('selected');
-                artist.classList.remove('selected');
-                settings.classList.add('selected');
-                this.setState({
-                    Menu:true,
-                    album:false,
-                    songs:false,
-                    artist:false,
-                    setting:true
-                })
-            }
-            if(angle>45 && this.state.Menu===true){
-                angle=-10;
-            //     songs.classList.add('selected');
-            //         album.classList.remove('selected');
-            //         artist.classList.remove('selected');
-            //         settings.classList.remove('selected');
-            //         this.setState({
-            //             Menu:true,
-            //             album:false,
-            //             songs:true,
-            //             artist:false,
-            //             setting:true
-            // });
-        }
-            // if(angle>45 && angle<90 && this.state.Menu===true){
-            //     songs.classList.remove('selected');
-            //     album.classList.remove('selected');
-            //     artist.classList.remove('selected');
-            //     settings.classList.add('selected');
-            //     this.setState({
-            //         Menu:true,
-            //         album:false,
-            //         songs:false,
-            //         artist:false,
-            //         setting:true
-            //     })
-            // }
-            // if(angle>90 && this.state.Menu===true){
-            //     angle=0;
-            //     this.setState({
-            //         Menu:true,
-            //         album:false,
-            //         songs:true,
-            //         artist:false,
-            //         setting:false
-            //     })
-
-            // }
-        })
-        // console.log(this.state);
-
-    }
-
-    handleItemClick=()=>{
-        if(this.state.songs===true && this.state.Menu===true){
-            this.setState({
-                Menu:false
-            })
-        
-
-            let screen=document.getElementById('screen');
-            let list=document.getElementById('list');
              
-            list.style.display="none";
-            let newScreen=document.createElement('img');
-            newScreen.id='img-id';
-            newScreen.setAttribute('src',"https://i.pinimg.com/originals/0b/4b/b0/0b4bb0878c4f4e8a43446b4cf992d454.jpg");
-            screen.appendChild(newScreen)
-            
-    }
+            }); //end of bind()
+        }else{
+            console.log('Not allowed to Enter');
+        }
 
-    if(this.state.album===true && this.state.Menu===true){
-        this.setState({
-            Menu:false
-        })
-    
-
-        let screen=document.getElementById('screen');
-        let list=document.getElementById('list');
-        list.style.display="none";
-        let newScreen=document.createElement('img');
-        newScreen.id='img-id';
-        newScreen.setAttribute('src',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQemq_16W-ChKFFNxp-lrCZ_ez11cg2vOgHWQ&usqp=CAU");
-        screen.appendChild(newScreen)
         
-
-}
-
-if(this.state.artist===true && this.state.Menu===true){
-    this.setState({
-        Menu:false
-    })
-
-
-    let screen=document.getElementById('screen');
-    let list=document.getElementById('list');
-    list.style.display="none";
-    let newScreen=document.createElement('img');
-    newScreen.id='img-id';
-    newScreen.setAttribute('src',"https://static01.nyt.com/images/2019/07/17/arts/17album-sheeran-grid/17album-sheeran-grid-articleLarge.jpg?quality=75&auto=webp&disable=upscale");
-    screen.appendChild(newScreen)
-        
-
-}
-
-if(this.state.setting===true && this.state.Menu===true){
-    this.setState({
-        Menu:false
-    })
-
-
-    let screen=document.getElementById('screen');
-    let list=document.getElementById('list');
-    list.style.display="none";
-    let newScreen=document.createElement('img');
-    newScreen.id='img-id';
-    newScreen.setAttribute('src',"http://www.howtogeek.com/wp-content/uploads/2010/08/sshot201008022149437.png'");
-    screen.appendChild(newScreen)
-        
-
-}
     }
-
-onMenuClick= ()=>{
-    console.log(this.state.Menu);
-    
-    if(this.state.Menu===false){
-        let prev=document.getElementById('img-id');
-        let list=document.getElementById('list');
-        prev.remove();
-        list.style.display="block";
-        this.setState({
-            Menu:true,
-    },()=>{
-        console.log(this.state);
-
-    })
-
-    }
-
-}
   
+
+    changePage= ()=>{
+
+        let {activeItem}=this.state;
+        if(activeItem==='Music'){
+            this.setState({
+                activeItem:'MyMusic',
+                activePage:activeItem
+            })
+        }else if(activeItem==='NowPlaying'){
+            this.setState({
+                activeItem : 'NowPlaying',
+                activePage : 'MyMusic'
+            })
+
+        }else{
+            this.setState({
+                activeItem : activeItem,
+                activePage : activeItem
+            })
+
+        }
+        
+
+
+
+    }
+
+    changePageToHomeScreen=()=>{
+        if(this.state.activeItem==="MyMusic" || this.state.activeItem==="Artists"){
+            this.setState({
+                activeItem:'Music',
+                activePage:'Home'
+            })
+        }
+        // else{
+        //     this.setState({
+        //         activeItem:this.state.activeItem,
+        //         activePage:'Home'
+        //     })
+        // }
+    }
+
   render(){
     return (
-    <div className="ipod">
-        <IpodScreen />
-        <ControlPad rotate={this.captureRotation} handleItemClick={this.handleItemClick} handleMenuClick={this.onMenuClick}/>
+    <div  style={styles.ipodContainer} className="ipod">
+        <IpodScreen  activeItem={this.state.activeItem} activePage={this.state.activePage}/>
+        <ControlPad rotate={this.captureRotation} changePageToHomeScreen={this.changePageToHomeScreen} changePage={this.changePage}/>
     </div>
   );
  }
+}
+
+const styles={
+    ipodContainer:{
+        height : '33rem',
+        width : '20rem',
+        backgroundImage: 'radial-gradient(#adb1b5, #4d4f50)',
+        margin : '4rem auto',
+        display : 'flex',
+        flexDirection : 'row',
+        flexWrap : 'wrap',
+        justifyContent : 'center',
+        borderRadius : '24px'
+    }
 }
 
 export default Ipod;
