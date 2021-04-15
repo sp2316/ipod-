@@ -21,7 +21,7 @@ class Ipod extends React.Component{
         const region=new ZingTouch.Region(target); //add the control pad region as the region to observe rotations
         let change=0; //to maintain gap between the movements on the screen
         this.state.enter+=1; //this means that the bind method must be attached to the target region only once when the onMouseOver is activated for the first time
-        console.log(this.state.enter);
+
         if(this.state.enter<2){
             region.bind(target,'rotate',(e)=>{
 
@@ -123,7 +123,6 @@ class Ipod extends React.Component{
   
  //whenever the middle button is clicked,this function is called to perfrom page change operation
     changePage= ()=>{
-        console.log(this.state);
 
         let {activeItem}=this.state;
         if(activeItem==='Music'){
@@ -186,7 +185,6 @@ class Ipod extends React.Component{
     //the audio is loaded whenever the main ipod component is loaded
     componentDidMount(){
         let audio = document.getElementsByClassName("audio-element")[0]
-        console.log(audio);
         this.setState({
             audio : audio,
         })
