@@ -63,11 +63,19 @@ class MyMusic extends React.Component{
 
                  {/* The audio player part*/}
             <div style={styles.statusBar}>
-                <p style={styles.currTime}>{Math.floor(audio.currentTime)}</p>
+            <p style={styles.currTime}>
+            {Math.floor(audio.currentTime)>=60?
+            (Math.floor(audio.currentTime/60)+":"+
+            ((Math.floor(audio.currentTime%60)<10?'0'+Math.floor(audio.currentTime)%60:Math.floor(audio.currentTime)%60)))
+            :((Math.floor(audio.currentTime)%60)<10?"0:0"+Math.floor(audio.currentTime)%60: "0:"+Math.floor(audio.currentTime)%60)} 
+            </p>
                 <div style={styles.seekBar}>
                         <div style={styles.fill} id='fill'></div>
                 </div>
-                    <p style={styles.dur}>{Math.floor(audio.duration)}</p>
+                <p style={styles.dur}>{Math.floor(audio.duration/60)+
+                (Math.floor(audio.duration%60)<10 ? ":0"+Math.floor(audio.duration%60):Math.floor(audio.duration%60)) }
+                </p> 
+                
             </div>
           </div>
         )
