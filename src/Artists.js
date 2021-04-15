@@ -11,7 +11,7 @@ class Artists extends React.Component{
            
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
-                    <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                    <img  alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
             
 
@@ -22,7 +22,7 @@ class Artists extends React.Component{
 
              <div style={styles.subInfo}>
 
-                <h4 style={{marginBottom:'0.5rem'}}>IPOD.js <span><img style={styles.image} src="https://image.flaticon.com/icons/svg/953/953909.svg"></img></span></h4>
+                <h4 style={{marginBottom:'0.5rem'}}>IPOD.js <span><img  alt=" " style={styles.image} src="https://image.flaticon.com/icons/svg/953/953909.svg"></img></span></h4>
                 <p style={{marginBottom:'0'}}>React Project</p>
                 <p>Made by : Palivela Sai Prasad</p>
              </div>

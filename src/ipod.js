@@ -15,17 +15,17 @@ class Ipod extends React.Component{
             play:true
         }
     }
-    
+    //to capture the rotation movements 
     captureRotation=()=>{
         const target=document.getElementById('outer-wheel');
         const region=new ZingTouch.Region(target);
-        let change=0;
+        let change=0; //to maintain gap between the movements on the screen
         this.state.enter+=1;
         if(this.state.enter<2){
             region.bind(target,'rotate',(e)=>{
 
                let angle=e.detail.distanceFromLast;
-                console.log("angle",angle," ",this.state.enter);
+                console.log("angle",angle," ",this.state.enter,change);
 
                 if(angle<0){
 
@@ -33,8 +33,8 @@ class Ipod extends React.Component{
                     change++;
                     let {activePage}=this.state;
                     let {activeItem}=this.state;
-
-                    if(change===15){
+                    console.log("change ",change);
+                    if(change===15){ 
                         console.log("change state");
                         change=0;
                         
@@ -117,14 +117,11 @@ class Ipod extends React.Component{
             }
              
             }); //end of bind()
-        }else{
-            console.log('Not allowed to Enter');
         }
-
         
     }
   
-
+ //whenever the middle button is clicked,this function is called to perfrom page change operation
     changePage= ()=>{
         console.log(this.state);
 
@@ -153,6 +150,7 @@ class Ipod extends React.Component{
 
     }
 
+   //whenu menu button is clicked
     changePageToHomeScreen=()=>{
         if(this.state.activeItem==="MyMusic" || this.state.activeItem==="Artists"){
             this.setState({
@@ -168,6 +166,7 @@ class Ipod extends React.Component{
         }
     }
 
+    //when the play-pause button is clicked,the audio pauses and plays (toggles)
     toggle = () =>{
         if(this.state.activePage === 'MyMusic'){
             if(this.state.play === true){
@@ -181,10 +180,10 @@ class Ipod extends React.Component{
                     play : true
                 })
             }
-            console.log("toggled")
         }
     }
 
+    //the audio is loaded whenever the main ipod component is loaded
     componentDidMount(){
         let audio = document.getElementsByClassName("audio-element")[0]
         console.log(audio);
@@ -192,8 +191,10 @@ class Ipod extends React.Component{
             audio : audio,
         })
     }
+
   render(){
     return (
+        //To make sure audio runs in the background even when are in other pages
     <div  style={styles.ipodContainer} className="ipod">
         <audio className="audio-element">
             <source src={sound}></source>

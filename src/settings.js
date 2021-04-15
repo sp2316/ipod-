@@ -8,12 +8,12 @@ class Settings extends React.Component{
         <div style={styles.settings}>
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
-                    <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                    <img alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
             
             <div style={styles.imageContainer}>
 
-            <img style={styles.image} src="https://image.flaticon.com/icons/svg/929/929435.svg" />
+            <img alt="settings" style={styles.image} src="https://image.flaticon.com/icons/svg/929/929435.svg" />
 
 
              </div>

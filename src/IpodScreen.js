@@ -11,7 +11,9 @@ class IpodScreen extends React.Component{
     render(){
       
         return(
+            
             <div style={styles.screen} id="screen"> 
+            {/* Depending on the screen required to be loaded,the components are called and the props are passed*/}
                 {this.props.activePage==='Home'?<Home activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Music'?<Music activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Games'?<Games /> : null}

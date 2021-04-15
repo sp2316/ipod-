@@ -11,17 +11,17 @@ class ControlPad extends React.Component{
                    <div style={styles.buttonContainer}>
 
                    <div style={styles.menuButton}>
-                   <img src="https://www.flaticon.com/svg/vstatic/svg/1828/1828859.svg?token=exp=1618394191~hmac=9d3f3e5c8565e9fe060b683b95be275f" onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} ></img>
+                   <img alt=" " src="https://www.flaticon.com/svg/vstatic/svg/1828/1828859.svg?token=exp=1618394191~hmac=9d3f3e5c8565e9fe060b683b95be275f" onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} ></img>
                    </div>
 
                    </div>
                    
                    <div style={styles.buttonContainer}>
                      <div style={styles.middleButtons}>
-                        <img style={styles.image} src="https://www.flaticon.com/svg/vstatic/svg/56/56760.svg?token=exp=1618393986~hmac=b95d3e702eb3ae83fe9284001ce3fb8d"></img>
+                        <img  alt=" " style={styles.image} src="https://www.flaticon.com/svg/vstatic/svg/56/56760.svg?token=exp=1618393986~hmac=b95d3e702eb3ae83fe9284001ce3fb8d"></img>
                         <div onClick={()=>this.props.changePage()} style={{backgroundImage: 'linear-gradient(45deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                         
-                          <img style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/54/54366.svg?token=exp=1618394128~hmac=02bd7bcd983f75e317989cbb74678424"></img>
+                          <img  alt=" " style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/54/54366.svg?token=exp=1618394128~hmac=02bd7bcd983f75e317989cbb74678424"></img>
                         
                          </div>
                    </div>
@@ -29,8 +29,8 @@ class ControlPad extends React.Component{
                    <div style={styles.buttonContainer}>
                          <div onClick={()=>this.props.toggle()} style = {styles.playButton}>
                            
-                            <img  onClick={()=>this.props.toggle()} style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/27/27223.svg?token=exp=1618394578~hmac=6999878720207448d8cac1af1096c917"></img>&nbsp;
-                            <img onClick={()=>this.props.toggle()} style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/151/151859.svg?token=exp=1618394618~hmac=80d0980d60de49b9e2839886991c1d83"></img>
+                            <img  alt=" " onClick={()=>this.props.toggle()} style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/27/27223.svg?token=exp=1618394578~hmac=6999878720207448d8cac1af1096c917"></img>&nbsp;
+                            <img  alt=" "onClick={()=>this.props.toggle()} style = {styles.image} src="https://www.flaticon.com/svg/vstatic/svg/151/151859.svg?token=exp=1618394618~hmac=80d0980d60de49b9e2839886991c1d83"></img>
                          </div>
 
                         
@@ -82,7 +82,6 @@ image: {
     width:'40px',
     height:'50px',
     color : 'white',
-    color:'white',
     
 
 }

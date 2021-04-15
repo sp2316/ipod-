@@ -1,13 +1,12 @@
 import React from 'react';
 
-const sound = require('./assets/music/afterglow.mp3')
 
 class MyMusic extends React.Component{
 
     constructor(){
         super();
-        this.state={
-            isMounted:true
+        this.state={ 
+            isMounted:true  //used to know if the component is loaded
         }
     }
 
@@ -17,14 +16,14 @@ class MyMusic extends React.Component{
 
        
             this.props.audio.addEventListener("timeupdate",()=>{
-                if(this.state.isMounted){
+                if(this.state.isMounted){ //if component is loaded,then only execute the below lines of code
                     var pos = this.props.audio.currentTime/this.props.audio.duration;
                     this.updateTime();
                     let fill = document.getElementById("fill");
-                    // console.log(fill);
-                    // if(fill !== null){
-                        fill.style.width = pos*100 + "%";
-                    // }
+
+                    if(fill!==null) //if component is not loaded or unmounted , fill will be null so we put a check here
+                    fill.style.width = pos*100 + "%";
+               
                 }
             })
         
@@ -32,33 +31,37 @@ class MyMusic extends React.Component{
 
     updateTime=()=>{
         this.setState({
-            audio:this.props.audio
+            audio:this.props.audio   // can be left empty too..its just to make state change happen so that the current time can be reflected on the UI (left to the player)
         })
     }
 
     componentWillUnmount(){
-        this.state.isMounted = false;
+        this.state.isMounted = false; //unmount this component if we change to other component
     }
 
 
     render(){
+        
         let audio=this.props.audio;
-        console.log('a' ,audio)
         return(
+
           <div style={styles.myMusicContainer}>
+             {/* The header part*/}
             <div style={styles.titleBar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
-                    <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                    <img alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
             </div>
 
-            <div style={styles.info}>
-                <img style={styles.image} src="https://i.ytimg.com/vi/_NGQfFCFUn4/maxresdefault.jpg"></img>
+                 {/* The singer info part*/}
+             <div style={styles.info}>
+                <img alt="singer_image"style={styles.image} src="https://i.ytimg.com/vi/_NGQfFCFUn4/maxresdefault.jpg"></img>
                 <div style={styles.subInfo}>
                     <h4 style={{marginBottom:'0.5rem'}}>Afterglow</h4>
                     <p style={{marginBottom:'0'}}>Ed Sheeran</p>
                 </div>
             </div>
 
+                 {/* The audio player part*/}
             <div style={styles.statusBar}>
                 <p style={styles.currTime}>{Math.floor(audio.currentTime)}</p>
                 <div style={styles.seekBar}>

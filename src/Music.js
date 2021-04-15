@@ -7,11 +7,14 @@ class Music extends React.Component{
     render(){
         return(
         <div style={styles.musicScreen} id="music-screen">
+          
             <div style={styles.menuList} id="menu-list">
+                  {/* The Header part */}
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
-                    <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                    <img alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
+                {/* The list of utilities */}
             <ListGroup>
             <ListGroup.Item style={{border:'0',padding: '0.2rem 0.6rem'}} className={this.props.activeItem==='MyMusic'?'active':''}>
                 My Music {this.props.activeItem ==='MyMusic'?<span style={{float:'right',fontWeight:'bold'}}>&gt;</span>:''}
@@ -24,6 +27,8 @@ class Music extends React.Component{
             </ListGroup>
 
             </div>
+             
+               {/* setting the background image on the screen*/}
             <div style={styles.imageContainer} id='image-container'>
              </div>
         </div>

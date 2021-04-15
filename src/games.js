@@ -14,12 +14,12 @@ constructor(){
         <div style={styles.game}>
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
-                    <img style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                    <img alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
             
             <div style={styles.imageContainer}>
 
-            <img style={styles.image} src="https://i.gifer.com/JJas.gif" />
+            <img alt="game" style={styles.image} src="https://i.gifer.com/JJas.gif" />
 
 
              </div>
