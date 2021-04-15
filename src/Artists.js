@@ -1,6 +1,7 @@
 import React from 'react' ;
 import artistImage from './sai_.jpg'
 
+// const artistImage=require('./assets/images/sai_.jpg');
 class Artists extends React.Component{
 
 
@@ -19,7 +20,7 @@ class Artists extends React.Component{
             <div style={styles.imageContainer} id='image-container'>
              </div>
 
-             <div style={styles.suInfo}>
+             <div style={styles.subInfo}>
 
                 <h4 style={{marginBottom:'0.5rem'}}>IPOD.js <span><img style={styles.image} src="https://image.flaticon.com/icons/svg/953/953909.svg"></img></span></h4>
                 <p style={{marginBottom:'0'}}>React Project</p>
@@ -53,12 +54,13 @@ const styles={
         height:'20px'
     },
     imageContainer : {
-        height : '65%',
-        width : '35%',
+        height : '75%',
+        width : '45%',
         backgroundImage : `url(${artistImage})`,
         backgroundSize : 'cover',
         backgroundPosition : 'center',
-        borderRadius : '50%'
+        borderRadius : '50%',
+        margin:'12px'
     },
     titlebar:{
         height:'10%',

@@ -2,6 +2,12 @@ import React from 'react'
 
 class Games extends React.Component{
 
+constructor(){
+    super();
+    this.state={
+        isLoaded:false
+    }
+}
 
     render(){
         return(
@@ -13,7 +19,7 @@ class Games extends React.Component{
             
             <div style={styles.imageContainer}>
 
-            <img style={styles.image} src="https://i.gifer.com/Brc6.gif" />
+            <img style={styles.image} src="https://i.gifer.com/JJas.gif" />
 
 
              </div>

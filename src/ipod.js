@@ -2,6 +2,7 @@ import React from 'react'
 import IpodScreen from './IpodScreen'
 import ControlPad from './ControlPad'
 import ZingTouch from 'zingtouch'
+import sound from './afterglow.mp3'
 
 class Ipod extends React.Component{
 
@@ -167,11 +168,38 @@ class Ipod extends React.Component{
         }
     }
 
+    toggle = () =>{
+        if(this.state.activePage === 'MyMusic'){
+            if(this.state.play === true){
+                this.state.audio.pause();
+                this.setState({
+                    play : false
+                })
+            }else{
+                this.state.audio.play();
+                this.setState({
+                    play : true
+                })
+            }
+            console.log("toggled")
+        }
+    }
+
+    componentDidMount(){
+        let audio = document.getElementsByClassName("audio-element")[0]
+        console.log(audio);
+        this.setState({
+            audio : audio,
+        })
+    }
   render(){
     return (
     <div  style={styles.ipodContainer} className="ipod">
-        <IpodScreen  activeItem={this.state.activeItem} activePage={this.state.activePage}/>
-        <ControlPad rotate={this.captureRotation} changePageToHomeScreen={this.changePageToHomeScreen} changePage={this.changePage}/>
+        <audio className="audio-element">
+            <source src={sound}></source>
+        </audio>
+        <IpodScreen  activeItem={this.state.activeItem} activePage={this.state.activePage} audio={this.state.audio}/>
+        <ControlPad rotate={this.captureRotation} changePageToHomeScreen={this.changePageToHomeScreen} changePage={this.changePage} toggle={this.toggle}/>
     </div>
   );
  }
@@ -181,7 +209,7 @@ const styles={
     ipodContainer:{
         height : '33rem',
         width : '20rem',
-        backgroundImage: 'radial-gradient(#adb1b5, #4d4f50)',
+        backgroundImage: 'radial-gradient(#adb1b5, #4d4f80)',
         margin : '4rem auto',
         display : 'flex',
         flexDirection : 'row',
