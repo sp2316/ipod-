@@ -11,8 +11,8 @@ class ControlPad extends React.Component{
                    <div style={styles.buttonContainer}>
                          {/* The menu button */}
                    <div style={styles.menuButton}>
-                   <i style={{fontSize:'2rem'}} onClick={this.changePageToHomeScreen} style = {styles.image} className="fas fa-bars"></i>
-                   <i onClick={this.changePageToHomeScreen} style = {styles.image} className="fas fa-bars"></i>
+                   <i style={{fontSize:'2rem'}} onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} className="fas fa-bars"></i>
+                   <i onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} className="fas fa-bars"></i>
                    </div>
 
                    </div>
@@ -31,8 +31,8 @@ class ControlPad extends React.Component{
                    <div style={styles.buttonContainer}>
                          <div onClick={()=>this.props.toggle()} style = {styles.playButton}>
                            
-                         <i onClick={this.toggle} style = {styles.image} className="fas fa-play"></i>&nbsp;
-                         <i onClick={this.toggle} style = {styles.image} className="fas fa-pause"></i>
+                         <i onClick={()=>this.props.toggle()} style = {styles.image} className="fas fa-play"></i>&nbsp;
+                         <i onClick={()=>this.props.toggle()} style = {styles.image} className="fas fa-pause"></i>
 
                          </div>
 
