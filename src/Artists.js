@@ -8,7 +8,7 @@ class Artists extends React.Component{
     render(){
         return(
         <div style={styles.artistsContainer} >
-           
+            {/* The header */}
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
                     <img  alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
@@ -16,19 +16,19 @@ class Artists extends React.Component{
             
 
             <div style={styles.info}>
-                
+                 {/* Artist image */}
             <div style={styles.imageContainer} id='image-container'>
              </div>
-
+                 {/*Artist details */}
              <div style={styles.subInfo}>
 
                 <h4 style={{marginBottom:'0.5rem'}}>IPOD.js <span><img  alt=" " style={styles.image} src="https://image.flaticon.com/icons/svg/953/953909.svg"></img></span></h4>
                 <p style={{marginBottom:'0'}}>React Project</p>
-                <p>Made by : Palivela Sai Prasad</p>
+                <p>App Made by :<br/> <i>Palivela Sai Prasad</i></p>
              </div>
 
             </div>
-
+             {/*Thank you  */}
             <div style={styles.info2}>
                 <h5 style={{alignSelf:'center'}}>Thanks for visiting the app!!</h5>
             </div>
@@ -54,7 +54,7 @@ const styles={
         height:'20px'
     },
     imageContainer : {
-        height : '75%',
+        height : '85%',
         width : '45%',
         backgroundImage : `url(${artistImage})`,
         backgroundSize : 'cover',

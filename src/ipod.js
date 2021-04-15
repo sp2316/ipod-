@@ -18,24 +18,22 @@ class Ipod extends React.Component{
     //to capture the rotation movements 
     captureRotation=()=>{
         const target=document.getElementById('outer-wheel');
-        const region=new ZingTouch.Region(target);
+        const region=new ZingTouch.Region(target); //add the control pad region as the region to observe rotations
         let change=0; //to maintain gap between the movements on the screen
-        this.state.enter+=1;
+        this.state.enter+=1; //this means that the bind method must be attached to the target region only once when the onMouseOver is activated for the first time
+        console.log(this.state.enter);
         if(this.state.enter<2){
             region.bind(target,'rotate',(e)=>{
 
                let angle=e.detail.distanceFromLast;
-                console.log("angle",angle," ",this.state.enter,change);
-
+                //travelling forwards if the rotation is done anti clock wise
                 if(angle<0){
 
-                    console.log("change ",change);
                     change++;
                     let {activePage}=this.state;
                     let {activeItem}=this.state;
-                    console.log("change ",change);
-                    if(change===15){ 
-                        console.log("change state");
+                    if(change===15){ //this slows the movement of the css applied to the lists on the home and music components ie changes the state omly when change ==15
+
                         change=0;
                         
                         if(activePage==='Home'){
@@ -79,6 +77,8 @@ class Ipod extends React.Component{
                             if(change===15){
 
                             change=0;
+                            //travelling backwards if the rotation is done  clock wise
+
                             if(activePage==='Home'){
 
                                 if(this.state.activeItem === 'NowPlaying'){

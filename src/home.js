@@ -8,10 +8,12 @@ class Home extends React.Component{
         return(
         <div style={styles.homeScreen} id="home-screen">
             <div style={styles.menuList} id="menu-list">
+              {/*The header part*/}
                 <div style={styles.titlebar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
                     <img alt="battery" style={styles.battery} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
+                {/* The list of utilities  */}
             <ListGroup>
             <ListGroup.Item style={{border:'0',padding: '0.2rem 0.6rem'}} className={this.props.activeItem==='NowPlaying'?'active':''}>
                 Now Playing {this.props.activeItem ==='NowPlaying'?<span style={{float:'right',fontWeight:'bold'}}>&gt;</span>:''}
@@ -32,6 +34,7 @@ class Home extends React.Component{
             </ListGroup>
 
             </div>
+             {/*For background */}
             <div style={styles.imageContainer} id='image-container'>
              </div>
         </div>

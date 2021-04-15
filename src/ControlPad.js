@@ -9,7 +9,7 @@ class ControlPad extends React.Component{
                 <div id="outerController" style={styles.wheel} id="outer-wheel" onMouseOver={()=>this.props.rotate()}>
                    
                    <div style={styles.buttonContainer}>
-
+                         {/* The menu button */}
                    <div style={styles.menuButton}>
                    <img alt=" " src="https://www.flaticon.com/svg/vstatic/svg/1828/1828859.svg?token=exp=1618394191~hmac=9d3f3e5c8565e9fe060b683b95be275f" onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} ></img>
                    </div>
@@ -17,6 +17,7 @@ class ControlPad extends React.Component{
                    </div>
                    
                    <div style={styles.buttonContainer}>
+                    {/* the previous changePage and forward button*/}
                      <div style={styles.middleButtons}>
                         <img  alt=" " style={styles.image} src="https://www.flaticon.com/svg/vstatic/svg/56/56760.svg?token=exp=1618393986~hmac=b95d3e702eb3ae83fe9284001ce3fb8d"></img>
                         <div onClick={()=>this.props.changePage()} style={{backgroundImage: 'linear-gradient(45deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
@@ -25,7 +26,7 @@ class ControlPad extends React.Component{
                         
                          </div>
                    </div>
-
+                             {/*The play pause buttons*/}
                    <div style={styles.buttonContainer}>
                          <div onClick={()=>this.props.toggle()} style = {styles.playButton}>
                            
