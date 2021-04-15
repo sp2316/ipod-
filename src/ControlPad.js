@@ -6,12 +6,12 @@ class ControlPad extends React.Component{
     render(){
         return(
 
-                <div id="outerController" style={styles.wheel} id="outer-wheel" onMouseOver={()=>this.props.rotate()}>
+                <div style={styles.wheel} id="outer-wheel" onMouseOver={()=>this.props.rotate()}>
                    
                    <div style={styles.buttonContainer}>
                          {/* The menu button */}
                    <div style={styles.menuButton}>
-                   <i style={{fontSize:'2rem'}} onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} className="fas fa-bars"></i>
+                   <i  onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} className="fas fa-bars"></i>
                    <i onClick={()=>this.props.changePageToHomeScreen()} style = {styles.image} className="fas fa-bars"></i>
                    </div>
 
@@ -27,7 +27,7 @@ class ControlPad extends React.Component{
                         
                          </div>
                    </div>
-                             {/*The play pause buttons*/}
+                             {/*The play pause buttons..Songs can only be paused or played from MyMusic screen*/}
                    <div style={styles.buttonContainer}>
                          <div onClick={()=>this.props.toggle()} style = {styles.playButton}>
                            

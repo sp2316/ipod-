@@ -31,6 +31,7 @@ class Artists extends React.Component{
              {/*Thank you  */}
             <div style={styles.info2}>
                 <h5 style={{alignSelf:'center'}}>Thanks for visiting the app!!</h5>
+                <p style={{fontSize:'1.2rem',fontWeight:"bold"}}>Enjoy the song</p>
             </div>
             
         </div>

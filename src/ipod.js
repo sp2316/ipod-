@@ -4,6 +4,7 @@ import ControlPad from './ControlPad'
 import ZingTouch from 'zingtouch'
 import sound from './afterglow.mp3'
 
+
 class Ipod extends React.Component{
 
     constructor(){
